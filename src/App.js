@@ -8,7 +8,7 @@ const App = () => {
 
   const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545');
   const contractABI = [/* ABI from compiled contract */];
-  const contractAddress = 'your_contract_address';
+  const contractAddress = 'your_0x7234BFED0Ebaf260A8fCE8672BE58336D5f50b45';
   const contract = new web3.eth.Contract(contractABI, contractAddress);
 
   useEffect(() => {
