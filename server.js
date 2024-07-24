@@ -7,9 +7,9 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 
-const web3 = new Web3(`https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`);
+const web3 = new Web3(`https://mainnet.infura.io/v3/${process.env.5c177b643a244ce5876fed1ecf020b40}`);
 const contractABI = [/* ABI from compiled contract */];
-const contractAddress = process.env.CONTRACT_ADDRESS;
+const contractAddress = process.env.0x7234BFED0Ebaf260A8fCE8672BE58336D5f50b45;
 
 const contract = new web3.eth.Contract(contractABI, contractAddress);
 
@@ -17,7 +17,7 @@ app.post('/sendMessage', async (req, res) => {
     const { content } = req.body;
     const sentiment = await analyzeSentiment(content);
 
-    const account = web3.eth.accounts.privateKeyToAccount(process.env.PRIVATE_KEY);
+    const account = web3.eth.accounts.privateKeyToAccount(process.env.aa754ccfa52df8045e63668caed9686ac2f4422142d974d3d8b6ba13a8e12fbf);
     web3.eth.accounts.wallet.add(account);
     web3.eth.defaultAccount = account.address;
 
@@ -34,7 +34,7 @@ app.post('/sendMessage', async (req, res) => {
         gasPrice,
         nonce,
         chainId: 1
-    }, process.env.PRIVATE_KEY);
+    }, process.env.aa754ccfa52df8045e63668caed9686ac2f4422142d974d3d8b6ba13a8e12fbf);
 
     const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
     res.send(receipt);
